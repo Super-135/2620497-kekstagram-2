@@ -10,10 +10,14 @@ export const renderThumbnails = () => {
 
   photoDescriptions.forEach(({url, description, likes, comments}) => {
     const thumbnail = templateContent.cloneNode(true);
-    thumbnail.querySelector('.picture__img').src = url;
-    thumbnail.querySelector('.picture__img').alt = description;
-    thumbnail.querySelector('.picture__likes').textContent = likes;
-    thumbnail.querySelector('.picture__comments').textContent = comments.length;
+    const image = thumbnail.querySelector('.picture__img');
+    const contentLikes = thumbnail.querySelector('.picture__likes');
+    const contentCommentsLength = thumbnail.querySelector('.picture__comments');
+
+    image.src = url;
+    image.alt = description;
+    contentLikes.textContent = likes;
+    contentCommentsLength.textContent = comments.length;
     photoFragment.appendChild(thumbnail);
   });
 
